@@ -1,0 +1,36 @@
+{% extends 'accounts/base.html' %}
+{% block content %}
+    <div class="home-page-container">
+        <div class="home-header">
+            <h1 class="home-title">Welcome to the Home Page</h1>
+            <p class="home-intro">This is the homepage of your site.</p>
+        </div>
+
+        <div class="user-authentication">
+            {% if user.is_authenticated %}
+                <p class="authenticated-message">Hi, <a href="{% url 'profile' %}" class="authenticated-username">{{ user.username }}</a>!</p>
+                <a href="{% url 'logout' %}" class="logout-link">Logout</a>
+            {% else %}
+                <a href="{% url 'login' %}" class="auth-button login-btn">Login</a>
+                <a href="{% url 'register' %}" class="auth-button register-btn">Register</a>
+            {% endif %}
+        </div>
+
+        <!-- Additional Content Section -->
+        <!-- <div class="about-section">
+            <h2 class="about-title">About Our Platform</h2>
+            <p class="about-description">We provide a space where you can manage your activities efficiently. Whether you're a professional or a student, our platform helps you stay organized and track your progress in various areas.</p>
+        </div> -->
+
+        <div class="features-section">
+            <h2 class="features-title">Features</h2>
+            <ul class="features-list">
+                <li>Track your projects and tasks</li>
+                <li>Set deadlines and reminders</li>
+                <li>Collaborate with others</li>
+                <li>View progress with detailed reports</li>
+            </ul>
+        </div>
+
+    </div>
+{% endblock %}

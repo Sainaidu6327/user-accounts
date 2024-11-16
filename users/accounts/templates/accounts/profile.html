@@ -1,0 +1,14 @@
+{% extends 'accounts/base.html' %}
+{% block content %}
+    <div class="user-profile-container">
+        <h2 class="user-profile-title">Profile</h2>
+        <form method="post" enctype="multipart/form-data" class="user-profile-form">
+            {% csrf_token %}
+            {{ profile_form.as_p }}
+            <div class="profile-submit-section">
+                <button type="submit" class="profile-submit-btn">Update Profile</button>
+            </div>
+        </form>
+        <a href="{% url 'password_reset' %}">Reset Password?</a>
+    </div>
+{% endblock %}
